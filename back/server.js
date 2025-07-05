@@ -13,3 +13,14 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
+const URL = process.env.MONGODB_URL;
+
+mongoose.connect(URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const connection = mongoose.connection;
+connection.once("open", () => {
+  console.log("MongoDB Connection Successfully!!!");
+});
