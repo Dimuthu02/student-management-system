@@ -24,6 +24,10 @@ const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("MongoDB Connection Successfully!!!");
 });
+
+const studentRouter = require("./routes/students.js");
+app.use("/students", studentRouter);
+
 app.listen(PORT, () => {
   console.log(`Server port is :${PORT}`);
 });
