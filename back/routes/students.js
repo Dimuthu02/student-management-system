@@ -16,7 +16,7 @@ router.route("/add").post((req, res) => {
     .save()
     .then(() => res.json("Student added successfully"))
     .catch((err) => res.status(400).json("Error: " + err));
-});
+}); //
 // Get all students
 router.route("/").get((req, res) => {
   Student.find()
